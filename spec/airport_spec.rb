@@ -20,7 +20,18 @@ describe Airport do
       airport.take_off(plane)
       expect(airport.plane_count).to eq(0)
     end
-    
+
+  end
+
+  context 'traffic control' do
+
+    it 'a plane can not land if the airport is full' do
+      20.times{ airport.land(Plane.new) }
+      expect(airport.plane_count).to eq(20)
+      expect(airport.full?).to eq(true)
+      expect(airport.plane_count).to eq(20)
+    end
+  
   end
 
 end
