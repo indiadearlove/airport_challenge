@@ -9,15 +9,17 @@ describe Airport do
   context 'taking off and landing' do
 
     it 'a plane can land' do
+      plane_double = double(Plane.new, :stormy => false)
       expect(airport.plane_count).to eq(0)
-      airport.land(plane)
+      airport.land(plane_double)
       expect(airport.plane_count).to eq(1)
     end
 
     it 'a plane can take off' do
-      airport.land(plane)
+      plane_double = double(Plane.new, :stormy => false)
+      airport.land(plane_double)
       expect(airport.plane_count).to eq(1)
-      airport.take_off(plane)
+      airport.take_off(plane_double)
       expect(airport.plane_count).to eq(0)
     end
 
@@ -26,6 +28,7 @@ describe Airport do
   context 'traffic control' do
 
     it 'a plane can not land if the airport is full' do
+      plane_double = double(Plane.new, :stormy => false)  
       20.times{ airport.land(Plane.new) }
       expect(airport.plane_count).to eq(20)
       expect(airport.full?).to eq(true)
@@ -37,9 +40,9 @@ describe Airport do
   context 'weather conditions' do
     
     it 'a plane cannot take off when there is a storm brewing' do
-      airport.land(plane)
+      plane.landed!
       airport.take_off(plane)
-      if @stormy == true
+      if @weather == 1
         expect(airport.plane_count).to eq(1)
       else
         expect(airport.plane_count).to eq(0)
