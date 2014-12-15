@@ -1,10 +1,13 @@
+require_relative 'weather.rb'
+
 class Airport
   
+  include Weather
+
   def initialize
     @capacity = 20
     @planes =[]
     @weather = rand(1..10)
-    puts @weather
   end
 
   def plane_count
@@ -24,17 +27,6 @@ class Airport
 
   def full?
     plane_count == @capacity
-  end
-
-  def stormy?
-    if @weather == 1
-      puts 'stormy'
-      @stormy = true
-    else
-      puts 'sunny'
-      @stormy = false
-    end
-  
   end
 
 end
