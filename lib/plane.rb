@@ -20,4 +20,14 @@ class Plane
     fly!
   end
 
+  def landed!
+    @flying = false
+  end
+
+  def land!
+    landed!
+  end
+
+
+
 end
