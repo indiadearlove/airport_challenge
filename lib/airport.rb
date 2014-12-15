@@ -16,14 +16,14 @@ class Airport
   end
 
   def land(plane)
-    raise "Bad weather" if stormy? == true
+    raise "Bad weather" if stormy?
     raise "Airport is full" if full?
     @planes << plane
     plane.landed!
   end
 
   def take_off(plane)
-    raise "Bad weather" if stormy? == true
+    raise "Bad weather" if stormy?
     @planes.delete(plane)
     plane.fly!
   end

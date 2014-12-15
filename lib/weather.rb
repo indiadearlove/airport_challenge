@@ -12,4 +12,8 @@ module Weather
   
   end
 
+  def clear?
+    !@stormy
+  end
+
 end
