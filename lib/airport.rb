@@ -25,12 +25,13 @@ class Airport
 
   def stormy
     @weather = weather.rand(1..10)
+    
     if @weather == 1
       @stormy = true
     else
       @stormy = false
     end
-
+  
   end
 
 end
