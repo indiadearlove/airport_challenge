@@ -28,6 +28,4 @@ class Plane
     landed!
   end
 
-
-
 end
