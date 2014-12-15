@@ -16,4 +16,8 @@ class Plane
     fly!
   end
 
+  def take_off!
+    fly!
+  end
+
 end

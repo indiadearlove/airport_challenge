@@ -13,4 +13,9 @@ describe Plane do
     expect(plane.flying?).to eq(true)
   end
 
+  it 'can take off' do
+    plane.take_off!
+    expect(plane.flying?).to eq(true)
+  end
+
 end
