@@ -1,5 +1,5 @@
-require 'airport.rb'
-require 'plane.rb'
+require 'airport'
+require 'plane'
 
 describe Airport do
 
@@ -33,5 +33,19 @@ describe Airport do
     end
   
   end
+
+  context 'weather conditions' do
+    
+    it 'a plane cannot take off when there is a storm brewing' do
+      airport.land(plane)
+      airport.take_off(plane)
+      if @stormy == true
+        expect(airport.plane_count).to eq(1)
+      else
+        expect(airport.plane_count).to eq(0)
+      end
+    end
+
+  end   
 
 end
