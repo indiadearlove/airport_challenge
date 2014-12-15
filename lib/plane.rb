@@ -5,11 +5,15 @@ class Plane
   end
 
   def flying?
-    @flying = true
+    @flying == true
   end
 
   def fly!
     @flying =true
+  end
+
+  def in_air!
+    fly!
   end
 
 end
