@@ -9,17 +9,15 @@ describe Airport do
   context 'taking off and landing' do
 
     it 'a plane can land' do
-      plane_double = double(Plane.new, :stormy => false)
       expect(airport.plane_count).to eq(0)
-      airport.land(plane_double)
+      airport.land(plane)
       expect(airport.plane_count).to eq(1)
     end
 
     it 'a plane can take off' do
-      plane_double = double(Plane.new, :stormy => false)
-      airport.land(plane_double)
+      airport.land(plane)
       expect(airport.plane_count).to eq(1)
-      airport.take_off(plane_double)
+      airport.take_off(plane)
       expect(airport.plane_count).to eq(0)
     end
 
@@ -28,7 +26,6 @@ describe Airport do
   context 'traffic control' do
 
     it 'a plane can not land if the airport is full' do
-      plane_double = double(Plane.new, :stormy => false)  
       20.times{ airport.land(Plane.new) }
       expect(airport.plane_count).to eq(20)
       expect(airport.full?).to eq(true)
